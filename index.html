@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
+<link rel="shortcut icon" href="https://www.flaticon.com/premium-icon/happy-birthday_640960?term=birthday&page=1&position=53&page=1&position=53&related_id=640960&origin=search" type="image/x-icon" />
+  <link rel="stylesheet" href="css/index.css">
+  <title>BirthdayQuote</title>
+</head>
+<body>
+<div id="main">
+  <div id="HeadBox">
+  	<h1 >BirthdayQuote</h1>
+  	<button id="info-btn" type="submit">i</button>
+</div>
+<div id="slide1" class="slide">
+  <div id="Inputs">
+  <label for="Name">Enter Your Sweet Name:</label>
+  <input type="text" name="Name" id="Name" placeholder="Without spaces/Last name" required="" onkeypress="return event.charCode != 32"/>
+  <br />
+  <label for="DOB">Date of Birth:</label>
+  <input type="date" name="DOB" id="DOB" required="" />
+</div>
+<button type="submit" id="submit">➜</button>
+</div>
+<div id="slide2" class="slide">
+  <h2 id="birthday">Many more happy returns of the day <span id="bdayPer"></span> !</h2>
+  <p id="para">
+    
+  </p>
+  <br />
+</div>
+<div id="slide3" >
+  <h2>Dev info</h2>
+  <pre>Hello <span id="hloName"></span>!
+  I'm RJstyle, the developer of this simple project.
+  Here you can see a quote which is truely for you.
+  Thank you!
+  
+  And these quotes copywrites reserved by <a href="https://instagram.com/heartsencore?utm_medium=copy_link" target="_blank">Unknown</a>
+  </pre>
+</div>
+<audio src="
+https://pl3dxz-a.akamaihd.net/downloads/ringtones/files/mp3/2-46155.mp3" loop="" id="aud1"></audio>
+<audio src="http://tuneguru.in/wp-content/uploads/2020/09/Yen-Endral-Un-Pirantha-Naal-Ringtone.mp3" loop id="aud2"></audio>
+</div>
+</body>
+  <script src="js/index.js"></script>
+</html>
