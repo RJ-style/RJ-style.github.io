@@ -83,7 +83,7 @@ button:active {
 }
 #slide3{
   display: none;
-    overflow: scroll;
+    overflow-y: scroll;
   height: calc(100% - 70%);
   width: calc(100% - 5%);
   z-index: 100;
