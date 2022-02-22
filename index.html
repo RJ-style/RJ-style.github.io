@@ -6,8 +6,7 @@
   
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
   <link rel="icon" type="image/x-icon" href="icon.png">
-
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="css/index.css">
   <title>BirthdayQuote</title>
 </head>
 <body>
@@ -19,7 +18,7 @@
 <div id="slide1" class="slide">
   <div id="Inputs">
   <label for="Name">Enter Your Sweet Name:</label>
-  <input type="text" name="Name" id="Name" placeholder="Without spaces/Last name" required="" onkeypress="return event.charCode != 32"/>
+  <input type="text" name="Name" id="Name" placeholder="Without spaces/Last name" required="" onkeypress="replace(/\s/g, "")"/>
   <br />
   <label for="DOB">Date of Birth:</label>
   <input type="date" name="DOB" id="DOB" required="" />
@@ -48,5 +47,5 @@ https://pl3dxz-a.akamaihd.net/downloads/ringtones/files/mp3/2-46155.mp3" loop=""
 <audio src="http://tuneguru.in/wp-content/uploads/2020/09/Yen-Endral-Un-Pirantha-Naal-Ringtone.mp3" loop id="aud2"></audio>
 </div>
 </body>
-  <script src="index.js"></script>
+  <script src="js/index.js"></script>
 </html>
