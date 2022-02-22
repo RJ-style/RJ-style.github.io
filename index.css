@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Kaushan+Script&family=Marck+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Kaushan+Script&family=Marck+Script&family=Syne+Mono&display=swap');
 :root {
-  --bg-color: linear-gradient(55deg,#f8a415 ,#4f33d4);
+  --bg-color: linear-gradient(55deg,rgb(246,168,33,0.9) 25% ,rgba(113,85,249) 75%);
   --box-color: #15b2d9;
   --bg-color-slided: linear-gradient(55deg ,#4f33d4,#f8a415);
 }
@@ -11,11 +11,11 @@ body {
   right: 0;
   margin: 0;
 }
-a{
+a {
   text-decoration: none;
   color: rgba(0,0,0,0.49);
 }
-a:hover,a:active{
+a:hover,a:active {
   cursor: pointer;
   text-transform: uppercase;
 }
@@ -23,7 +23,30 @@ a:hover,a:active{
   height: 100vh;
   width: 100%;
   background: var(--bg-color);
+  position: relative;
+  overflow: hidden;
 }
+#main:before {
+  border-radius: inherit;
+  display: block;
+  width: 250%;
+  height: 250%;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--bg-color);
+  transform: translate(-25%,-25%) ;
+  animation: anime 8s linear infinite ;
+  transition: transform 8s linear;
+}
+@keyframes anime {
+
+  0% {
+    transform: translate(-25%,-25%)  rotate(-360deg) scale(1.2);
+  }
+}
+
 
 @keyframes mainBg {
   from {
@@ -36,7 +59,7 @@ a:hover,a:active{
 }
 
 #HeadBox {
-  background: white;
+  background:none;
   display: flex;
   justify-content: space-between;
 
@@ -48,9 +71,31 @@ a:hover,a:active{
 #HeadBox h1 {
   right: 0;
   transform: translate(20%,0%);
-  font-family: "Sofia", sans-serif;
+  font-family: "Sofia", sans-serif,Verdana;
   font-weight: bold;
+    text-shadow: 0 0 3px rgb(97,11,42), 0 0 15px whitesmoke;
+    z-index: 1;
+    transform: translate(0%,0%);
+    text-align: center;
+    background: whitesmoke;
+    color: rgb(251,229,237);
+    padding: 5px 1rem 5px;
+    border-radius: 0 2rem 2rem 0;
+      box-shadow: 0 0 8px rgb(204,204,204);
+
 }
+/*#HeadBox h1:before{
+  content:'';
+  position: absolute;
+  display:block;
+  height: 2.5rem;
+  width: 15rem;
+  background: whitesmoke;
+  z-index: -1;
+  border-radius: 0 2rem 2rem 0;
+      padding: 0.1rem;
+text-align: center;
+}*/
 #info-btn {
   width: 2rem;
   height: 2rem;
@@ -60,10 +105,15 @@ a:hover,a:active{
   top: 50%;
   right: 0;
   transform: translate(-50%,-50%);
-  background: rgba(38,38,38,0.49);
+  background:rgb(54,51,46);
   color: whitesmoke;
   font-size: 1.2rem;
   font-family: Tahoma;
+  box-shadow: 0 0 8px rgba(204,204,204);
+}
+span{
+  
+  text-transform: uppercase;
 }
 button:hover {
   cursor: pointer;
@@ -81,35 +131,35 @@ button:active {
   display: none;
   overflow: auto;
 }
-#slide3{
+#slide3 {
   display: none;
-    overflow-y: scroll;
+  overflow-y: scroll;
   height: calc(100% - 70%);
   width: calc(100% - 5%);
   z-index: 100;
   position: absolute;
-    background:linear-gradient(55deg,#000000bc,#ffffff7d 40%,#000000bc);
+  background: linear-gradient(55deg,#000000bc,#ffffff7d 40%,#000000bc);
   text-align: center;
   border-radius: 8px;
-  left:50%;
-  color:black;
+  left: 50%;
+  color: black;
 }
-#slide3 h2{
+#slide3 h2 {
   border-right: 2px;
- text-shadow: 1px 0px 1px black;
- position: absolute;
- font-family: Monospace;
+  text-shadow: 1px 0px 1px black;
+  position: absolute;
+  font-family: Monospace;
 }
 #slide3 pre {
-  margin: 3rem 0 0 0;
-  padding: 1.5rem;
+  margin: 3rem 0 -3rem 0;
+  padding: 1.5rem 0;
   overflow-wrap: break-word;
   position: absolute;
-  overflow-y: break-word;
-
+  overflow-y: auto;
+  text-align: center;
 }
 #slide2 p {
-  padding: 1rem;
+  padding:0rem 1rem 1rem 1rem;
   position: absolute;
   left: 50%;
   transform: translate(-50%,-5%);
@@ -145,10 +195,10 @@ button:active {
     width: calc(100% - 6%);
     font-size: 1.5rem;
   }
-  #slide1{
-       height: calc(100% - 50%);
-       overflow: auto;
-       font-size: 1rem;
+  #slide1 {
+    height: calc(100% - 50%);
+    overflow: auto;
+    font-size: 1rem;
   }
   #slide2 p {
     line-height: 3rem;
@@ -161,6 +211,7 @@ button:active {
 }
 #birthday.show {
   display: block;
+  font-family: 'Syne Mono', monospace;
 }
 #Inputs {
   background: var(--box-color);
@@ -276,36 +327,36 @@ input {
 
 
 
-#slide3.sliding{
+#slide3.sliding {
   display: flex;
-    flex-direction: row;
+  flex-direction: row;
 
   animation: slide3ShowAnime 1200ms ease-in-out;
   justify-content: space-around;
   transform: translate(-50%,100%);
 }
-@keyframes slide3ShowAnime{
-  from{
+@keyframes slide3ShowAnime {
+  from {
     transform: translate(-50%,-100%);
   }
-  to{
-        transform: translate(-50%,100%);
+  to {
+    transform: translate(-50%,100%);
   }
 }
-#slide3.backing{
+#slide3.backing {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-    animation: slide3HidAnime 1200ms ease-in-out;
+  animation: slide3HidAnime 1200ms ease-in-out;
   transform: translate(-50%,-100%);
 
 }
-@keyframes slide3HidAnime{
-  from{
-        transform: translate(-50%,100%);
+@keyframes slide3HidAnime {
+  from {
+    transform: translate(-50%,100%);
 
   }
-  to{
+  to {
     transform: translate(-50%,-100%);
   }
 }
@@ -313,9 +364,9 @@ input {
   content: '';
   position: absolute;
   display: block;
-  height:100%;
+  height: 100%;
   width: 100%;
-  background:linear-gradient(55deg,#20202095,#ffffff7d);
+  background: linear-gradient(55deg,#20202095,#ffffff7d);
   border-radius: 12px;
   filter: blur(1px);
   outline: none;
