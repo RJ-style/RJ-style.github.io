@@ -386,7 +386,7 @@ function looping() {
     console.log(quoteArr, quoteArr[totalLegnth-1], quoteArr.length, 'ascii=', totalLegnth);
 
   }
-  textCont.innerText = quoteArr[totalLegnth-1];
+  return quoteArr[totalLegnth-1];
 
 }
 
@@ -396,7 +396,7 @@ submitBtn.addEventListener('click', ()=> {
   if (getUsrName.value !== '' && getUsrDob.value !== "" && (getUsrDob.value !== '0000-00-00')) {
 
     console.log(new Date(getUsrDob.value).getTime());
-    hloName.innerText =getUsrName.value;
+    hloName.innerText = getUsrName.value;
     //future warning
     if (new Date(getUsrDob.value) > new Date()) {
       alert(`Oops! You couldn't born in future...`);
@@ -409,7 +409,7 @@ submitBtn.addEventListener('click', ()=> {
     }
     //birthdayWish
     if (new Date().getDate() == new Date(getUsrDob.value).getDate() && new Date().getMonth() == new Date(getUsrDob.value).getMonth()) {
-      bdayName.innerText =getUsrName.value;
+      bdayName.innerText = getUsrName.value;
       birthdayWish.className = 'show';
       nrmlAud.play();
     } else {
@@ -418,13 +418,11 @@ submitBtn.addEventListener('click', ()=> {
   } else {
     alert('Oops! You need to Fill these first for further operations!')
   }
-  looping();
-
-  if (((getUsrName.value).toUpperCase()) == 'HEMAVATHY T A' && new Date(getUsrDob.value).getDate() == new Date('2002-02-25').getDate() && new Date(getUsrDob.value).getMonth() == new Date('2002-02-25').getMonth()&& new Date(getUsrDob.value).getFullYear()== new Date('2002-02-25').getFullYear()) {
-    birthdayWish.innerText=`I'm truely sorry for wishing your birthday wishes like this! Anyways very very happy Birthday to you With my love!`;
-          birthdayWish.className = 'show';
-
+textCont.innerText=looping();
+  if (((getUsrName.value).toUpperCase()) == 'HEMAVATHY T A' && new Date(getUsrDob.value).getDate() == new Date('2002-02-25').getDate() && new Date(getUsrDob.value).getMonth() == new Date('2002-02-25').getMonth() && new Date(getUsrDob.value).getFullYear() == new Date('2002-02-25').getFullYear()) {
+    birthdayWish.className = 'show';
+    bdayName.innerText=getUsrName.value;
     textCont.innerText = quoteArr[52];
     spclAud.play();
-  }
+  } 
 })
