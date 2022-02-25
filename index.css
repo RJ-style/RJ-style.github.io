@@ -1,8 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Kaushan+Script&family=Marck+Script&family=Syne+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bad+Script&family=Kaushan+Script&family=Marck+Script&family=Syne+Mono&display=swap");
 :root {
-  --bg-color: linear-gradient(55deg,rgb(246,168,33,0.9) 25% ,rgba(113,85,249) 75%);
+  --bg-color: linear-gradient(
+    55deg,
+    rgb(246, 168, 33, 0.9) 25%,
+    rgba(113, 85, 249) 75%
+  );
   --box-color: #15b2d9;
-  --bg-color-slided: linear-gradient(55deg ,#4f33d4,#f8a415);
+  --bg-color-slided: linear-gradient(55deg, #4f33d4, #f8a415);
 }
 body {
   top: 0;
@@ -10,12 +14,15 @@ body {
   bottom: 0;
   right: 0;
   margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  
 }
 a {
   text-decoration: none;
-  color: rgba(0,0,0,0.49);
+  color: rgba(0, 0, 0, 0.49);
 }
-a:hover,a:active {
+a:hover,
+a:active {
   cursor: pointer;
   text-transform: uppercase;
 }
@@ -30,36 +37,33 @@ a:hover,a:active {
   border-radius: inherit;
   display: block;
   width: 250%;
-  height: 250%;
-  content: '';
+  height: 300%;
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   background: var(--bg-color);
-  transform: translate(-25%,-25%) ;
-  animation: anime 8s linear infinite ;
+  transform: translate(-25%, -25%);
+  animation: anime 8s linear infinite;
   transition: transform 8s linear;
 }
 @keyframes anime {
-
   0% {
-    transform: translate(-25%,-25%)  rotate(-360deg) scale(1.2);
+    transform: translate(-25%, -25%) rotate(-360deg) scale(1.2);
   }
 }
 
-
-@keyframes mainBg {
+/* @keyframes mainBg {
   from {
-    background: linear-gradient(55deg,#f8a415 ,#4f33d4);
+    background: linear-gradient(55deg, #f8a415, #4f33d4);
   }
   to {
-    background: linear-gradient(-55deg,#f8a415 ,#4f33d4);
+    background: linear-gradient(-55deg, #f8a415, #4f33d4);
   }
-
-}
+} */
 
 #HeadBox {
-  background:none;
+  background: none;
   display: flex;
   justify-content: space-between;
 
@@ -67,22 +71,25 @@ a:hover,a:active {
   width: 100%;
   margin: 0;
   z-index: 101;
+  user-select: none;
 }
 #HeadBox h1 {
   right: 0;
-  transform: translate(20%,0%);
-  font-family: "Sofia", sans-serif,Verdana;
+  transform: translate(20%, 0%);
+  font-family: "Sofia", sans-serif, Verdana;
   font-weight: bold;
-    text-shadow: 0 0 3px rgb(97,11,42), 0 0 15px whitesmoke;
-    z-index: 1;
-    transform: translate(0%,0%);
-    text-align: center;
-    background: whitesmoke;
-    color: rgb(251,229,237);
-    padding: 5px 1rem 5px;
-    border-radius: 0 2rem 2rem 0;
-      box-shadow: 0 0 8px rgb(204,204,204);
-
+  text-shadow: 0 0 3px rgb(97, 11, 42), 0 0 15px whitesmoke;
+  z-index: 1;
+  transform: translate(0%, 0%);
+  text-align: center;
+  background: whitesmoke;
+  color: rgb(251, 229, 237);
+  padding: 5px 1rem 5px;
+  border-radius: 0 2rem 2rem 0;
+  box-shadow: 0 0 8px rgb(204, 204, 204);
+}
+#HeadBox h1:hover{
+  cursor: pointer;
 }
 /*#HeadBox h1:before{
   content:'';
@@ -104,15 +111,14 @@ text-align: center;
   position: absolute;
   top: 50%;
   right: 0;
-  transform: translate(-50%,-50%);
-  background:rgb(54,51,46);
+  transform: translate(-50%, -50%);
+  background: rgb(54, 51, 46);
   color: whitesmoke;
   font-size: 1.2rem;
   font-family: Tahoma;
-  box-shadow: 0 0 8px rgba(204,204,204);
+  box-shadow: 0 0 8px rgba(204, 204, 204);
 }
-span{
-  
+span {
   text-transform: uppercase;
 }
 button:hover {
@@ -121,24 +127,80 @@ button:hover {
 button:active {
   opacity: 50%;
 }
-#slide2,#slide3 {
+#slide2,
+#slide3 {
   color: whitesmoke;
 }
 #slide1 {
   z-index: 1;
+  height: calc(100% - 40%);
+
+  /* background: red; */
 }
+
+@keyframes slide1Hidanime {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    transform: translate(-200%, -50%);
+  }
+}
+#slide1.hid {
+  display: block;
+  position: fixed;
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  transform: translate(-200%, -50%);
+  height: calc(100% - 40%);
+  width: calc(100% - 6%);
+  text-align: center;
+  animation: slide1Hidanime 800ms linear;
+}
+@keyframes slide1Showanime {
+  0% {
+    transform: translate(-200%, -50%);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+
+#slide1.show {
+  display: block;
+  position: fixed;
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: calc(100% - 40%);
+  width: calc(100% - 6%);
+  text-align: center;
+  animation: slide1Showanime 800ms linear;
+}
+
+@keyframes slide2Showanime {
+  0% {
+    transform: translate(50%, -50%);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+
 #slide2 {
   display: none;
-  overflow: auto;
+  /* overflow: auto; */
 }
 #slide3 {
   display: none;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   height: calc(100% - 70%);
   width: calc(100% - 5%);
   z-index: 100;
   position: absolute;
-  background: linear-gradient(55deg,#000000bc,#ffffff7d 40%,#000000bc);
+  background: linear-gradient(55deg, #000000bc, #ffffff7d 40%, #000000bc);
   text-align: center;
   border-radius: 8px;
   left: 50%;
@@ -155,18 +217,17 @@ button:active {
   padding: 1.5rem 0;
   overflow-wrap: break-word;
   position: absolute;
-  overflow-y: auto;
   text-align: center;
 }
 #slide2 p {
-  padding:0rem 1rem 1rem 1rem;
+  padding: 0rem 1rem 1rem 1rem;
   position: absolute;
   left: 50%;
-  transform: translate(-50%,-5%);
+  transform: translate(-50%, -5%);
   width: calc(100% - 10%);
   overflow-wrap: break-word;
-  overflow-y: auto;
-  font-family: 'Marck script', cursive,Consolas;
+  /* overflow-y: auto; */
+  font-family: "Marck script", cursive, Consolas;
   font-size: 1.3rem;
   font-weight: bolder;
   line-height: 2rem;
@@ -176,33 +237,43 @@ button:active {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   height: calc(100% - 50%);
   width: calc(100% - 6%);
   text-align: center;
 }
 
-@media screen and (min-width:650px) {
-  * {
-    font-size: 1.3rem;
-  }
+@media screen and (min-width: 650px) {
   .slide {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
-    height: calc(100% - 50%);
-    width: calc(100% - 6%);
-    font-size: 1.5rem;
+    transform: translate(-50%, -50%);
+    height: calc(100% - 80%);
+    width: calc(100% - 30%);
+    font-size: 1rem;
   }
   #slide1 {
-    height: calc(100% - 50%);
+    padding: 1rem;
+    height: calc(100% - 40%);
+    width: calc(100% - 20%);
     overflow: auto;
     font-size: 1rem;
+    filter: blur(0px);
+  }
+  #slide1.show,#slide1.hid{
+    height: calc(100% - 40%);
+    width: calc(100% - 20%);
+  }
+  #submit {
+    margin-top: 0rem;
   }
   #slide2 p {
     line-height: 3rem;
     font-size: 1.5rem;
+  }
+  #slide3 {
+    width: calc(100% - 40%);
   }
 }
 
@@ -211,7 +282,7 @@ button:active {
 }
 #birthday.show {
   display: block;
-  font-family: 'Syne Mono', monospace;
+  font-family: "Syne Mono", monospace;
 }
 #Inputs {
   background: var(--box-color);
@@ -230,7 +301,7 @@ input {
 #DOB {
   width: calc(100% - 70%);
   left: 50%;
-  transform: translate(15%,0%);
+  transform: translate(15%, 0%);
 }
 #submit {
   height: 3rem;
@@ -241,64 +312,14 @@ input {
   margin-top: 5rem;
   background: #aefacd;
 }
-@keyframes slide1Hidanime {
-  0% {
-    transform: translate(-50%,-50%);
-  }
-  100% {
-    transform: translate(-200%,-50%);
-  }
-}
-#slide1.hid {
-  display: block;
-  position: fixed;
-  z-index: 100;
-  top: 50%;
-  left: 50%;
-  transform: translate(-200%,-50%);
-  height: calc(100% - 50%);
-  width: calc(100% - 6%);
-  text-align: center;
-  animation: slide1Hidanime 800ms linear;
-}
-@keyframes slide1Showanime {
-  0% {
-    transform: translate(-200%,-50%);
-  }
-  100% {
-    transform: translate(-50%,-50%);
-  }
-}
 
-#slide1.show {
-  display: block;
-  position: fixed;
-  z-index: 100;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  height: calc(100% - 50%);
-  width: calc(100% - 6%);
-  text-align: center;
-  animation: slide1Showanime 800ms linear;
-}
-
-
-@keyframes slide2Showanime {
-  0% {
-    transform: translate(50%,-50%);
-  }
-  100% {
-    transform: translate(-50%,-50%);
-  }
-}
 #slide2.show {
   display: block;
   position: fixed;
   z-index: 100;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   height: calc(100% - 50%);
   width: calc(100% - 6%);
   text-align: center;
@@ -306,10 +327,10 @@ input {
 }
 @keyframes slide2Hidanime {
   0% {
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
   }
   100% {
-    transform: translate(50%,-50%);
+    transform: translate(50%, -50%);
   }
 }
 #slide2.hid {
@@ -318,14 +339,12 @@ input {
   z-index: 100;
   top: 50%;
   left: 50%;
-  transform: translate(100%,-50%);
+  transform: translate(100%, -50%);
   height: calc(100% - 50%);
   width: calc(100% - 6%);
   text-align: center;
   animation: slide2Hidanime 600ms linear;
 }
-
-
 
 #slide3.sliding {
   display: flex;
@@ -333,14 +352,14 @@ input {
 
   animation: slide3ShowAnime 1200ms ease-in-out;
   justify-content: space-around;
-  transform: translate(-50%,100%);
+  transform: translate(-50%, 100%);
 }
 @keyframes slide3ShowAnime {
   from {
-    transform: translate(-50%,-100%);
+    transform: translate(-50%, -100%);
   }
   to {
-    transform: translate(-50%,100%);
+    transform: translate(-50%, 100%);
   }
 }
 #slide3.backing {
@@ -348,25 +367,23 @@ input {
   flex-direction: row;
   justify-content: space-around;
   animation: slide3HidAnime 1200ms ease-in-out;
-  transform: translate(-50%,-100%);
-
+  transform: translate(-50%, -100%);
 }
 @keyframes slide3HidAnime {
   from {
-    transform: translate(-50%,100%);
-
+    transform: translate(-50%, 100%);
   }
   to {
-    transform: translate(-50%,-100%);
+    transform: translate(-50%, -100%);
   }
 }
-#slide3::befor{
-  content: '';
+#slide3::befor {
+  content: "";
   position: absolute;
   display: block;
   height: 100%;
   width: 100%;
-  background: linear-gradient(55deg,#20202095,#ffffff7d);
+  background: linear-gradient(55deg, #20202095, #ffffff7d);
   border-radius: 12px;
   filter: blur(1px);
   outline: none;
