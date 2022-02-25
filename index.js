@@ -424,5 +424,6 @@ textCont.innerText=looping();
     bdayName.innerText=getUsrName.value;
     textCont.innerText = quoteArr[52];
     spclAud.play();
+     nrmlAud.pause();
   } 
 })
